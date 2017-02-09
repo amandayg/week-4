@@ -19,7 +19,11 @@
   This recipe, can be used by underscore's _.filter. It will return only words with
    >=5 characters.
 ===================== */
-var isLengthOfFiveOrMore = function(str) {};
+var isLengthOfFiveOrMore = function(str) {
+    if (str.length >= 5){
+      return str;
+    }
+};
 
 console.log("isLengthOfFiveOrMore success:",
   _.isEqual(_.filter(['this', 'is','a', 'test', 'testing'], isLengthOfFiveOrMore), ['testing']));
@@ -30,15 +34,20 @@ console.log("isLengthOfFiveOrMore success:",
   function you write along with underscore's _.each to log the double of every
   number in the provided array.
 ===================== */
-var logDouble = function(num) {};
+var logDouble = function(array) {
+  _.each(array, function(num){
+    console.log(num*2);
+  });
+};
 var theArray = [1, 5, 20, 100];
+console.log(logDouble(theArray));
 
 
 /* =====================
   Given this already defined function, define fizzbuzzArray so that, when mapped
   over, it will equal ['fizz', 'buzz', 'fizzbuzz'];
 ===================== */
-var fizzbuzzArray = [];
+var fizzbuzzArray = [6, 10, 15];
 var fizzbuzzFunc = function(num) {
   var str = '';
   if (num % 3 === 0) { str = 'fizz'; }
@@ -66,7 +75,7 @@ console.log("fizzbuzz success:",
   NOTE: Because the ajax call happens asynchronously (that is, outside the normal execution order),
         you'll need to call console.log *within* the function that grabs your data.
         For example:
-
+*
         var computedValue;  // We want to store the value of a response on this variable
 
         // ================================
@@ -103,14 +112,24 @@ var phillyBikeCrashesDataUrl = "https://raw.githubusercontent.com/CPLN692-MUSA61
   Remember to call all code within the function body. Use console.log to make sure
   that this step is completed before moving on!
 ===================== */
+var computedValue;
+$.ajax("https://raw.githubusercontent.com/CPLN692-MUSA611/datasets/master/json/philadelphia-crime-snippet.json").done(function(ajaxResponseValue) {
+  computedValue = JSON.parse(ajaxResponseValue);
+  console.log(computedValue);
+  addMarkers(computedValue);
 
+});
 
 /* =====================
   Now that you've properly parsed your data, use _.each to plot the
   dataset you've pulled down.
 ===================== */
-
-
+function addMarkers(arr){
+_.each(arr, function(obj){
+  L.marker([obj.Lat, obj.Lng]).addTo(map);
+});
+}
+//addMarkers(computedValue);
 /* =====================
  Leaflet setup - feel free to ignore this
 ===================== */

@@ -1,13 +1,74 @@
 /* =================
 Add more styles here!
 ================= */
-
-body {
+button1{
+  position:relative;
+  float:right;
+  background-color: blue;
+  color: white;
+  padding: 7px;
+  font-size: 10px;
+  cursor:pointer;
+  box-sizing: border-box;
+}
+h1{
+  padding:0;
+  overflow:hidden;
+  font-family: fantasy;
+}
+name{
     padding: 0;
     overflow: hidden;
-    font-family: helvetica, arial, sans-serif;
+    font-family: Arial;
+    font-size: 18px;
 }
 
+type{
+    padding:0;
+    overflow:hidden;
+    font-family:Arial;
+    color:grey;
+    font-size: 16px;
+}
+addr {
+    padding:0;
+    overflow: scroll;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+table{
+  text-align: left;
+  width: 250px;
+  height: 80px;
+  border-collapse:separate;
+  border-spacing: 10px 5px;
+  background-color: pink;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  position:relative;
+  float: left;
+}
+
+table2{
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+  border-style: 1px solid black;
+  color: grey;
+  padding-left: 250px;
+  box-sizing: border-box;
+}
+
+button2 {
+    background-color: blue;
+    color: white;
+    padding: 7px;
+    font-size: 10px;
+    box-sizing: border-box;
+    cursor:pointer;
+}
 .map {
     position: absolute;
     right: 0px;
